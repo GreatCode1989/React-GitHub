@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { NextAuthProvider } from "./provider";
 
 export const metadata = {
   title: "Next.js",
@@ -9,10 +10,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div>
-          <Navbar></Navbar>
-          <div>{children}</div>
-        </div>
+        <NextAuthProvider>
+          <div>
+            <Navbar></Navbar>
+            <div>{children}</div>
+          </div>
+        </NextAuthProvider>
       </body>
     </html>
   );

@@ -35,4 +35,5 @@ export default function Navbar() {
       </Flex>
     </Box>
   );
+  <button onclick={() => signIn("github")}>,,,</button>
 }

@@ -1,20 +1,30 @@
-import { Button } from "@chakra-ui/react";
+"use client";
+
+import { useSession } from "next-auth/react";
+import SignInButton from "./SignInButton";
+import { useRouter } from 'next/router';
+import { Image } from "@chakra-ui/react";
 
 export default function ProfileIcon() {
-  return (
-    <Button
-      colorScheme="teal"
-      size="md"
-      borderRadius="8px"
-      fontWeight="bold"
-      boxShadow="md"
-      p={8}
-      width={100}
-      _hover={{ bgColor: "teal", cursor: "pointer", color: "white" }}
-      _active={{ bgColor: "teal" }}
-      _focus={{ outline: "none" }}
-    >
-      Sign In
-    </Button>
-  );
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    router.push('/repositories');
+  };
+
+  if (status === "authenticated") {
+    return (
+      <div className="flex gap-5">
+        <Image
+          src={session.user.image}
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+        <button onClick={handleSignOut}>Sign Out</button>
+      </div>
+    );
+  }
+  return <SignInButton />;
 }
