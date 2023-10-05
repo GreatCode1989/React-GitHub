@@ -8,6 +8,7 @@ import { Image } from "@chakra-ui/react";
 
 export default function ProfileIcon() {
   const { data: session, status } = useSession();
+  
 
   if (status === "authenticated") {
     return (
@@ -19,6 +20,7 @@ export default function ProfileIcon() {
           p={15}
           borderRadius="50%"
         />
+      
         <SignOutButton />
       </Flex>
     );

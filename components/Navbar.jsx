@@ -2,6 +2,7 @@ import { Box, Heading, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import ProfileIcon from "./ProfileIcon";
 
+
 export default function Navbar() {
   return (
     <Box
@@ -31,9 +32,10 @@ export default function Navbar() {
             </Link>
           </nav>
         </Heading>
+   
         <ProfileIcon />
       </Flex>
     </Box>
   );
-  <button onclick={() => signIn("github")}>,,,</button>
+  
 }
