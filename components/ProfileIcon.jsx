@@ -1,30 +1,32 @@
 "use client";
 
+import { Flex } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import SignInButton from "./SignInButton";
-import { useRouter } from 'next/router';
+import SignOutButton from "./SignOutButton";
 import { Image } from "@chakra-ui/react";
 
 export default function ProfileIcon() {
   const { data: session, status } = useSession();
-  const router = useRouter();
-
-  const handleSignOut = () => {
-    router.push('/repositories');
-  };
 
   if (status === "authenticated") {
     return (
-      <div className="flex gap-5">
+      <Flex alignItems="center">
         <Image
           src={session.user.image}
           width={40}
           height={40}
-          className="rounded-full"
+          p={15}
+          borderRadius="50%"
         />
-        <button onClick={handleSignOut}>Sign Out</button>
-      </div>
+        <SignOutButton />
+      </Flex>
     );
   }
+
   return <SignInButton />;
 }
+
+
+
+

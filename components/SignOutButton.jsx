@@ -12,6 +12,7 @@ export default function SignInButton() {
       fontWeight="bold"
       boxShadow="md"
       p={8}
+      
       width={100}
       _hover={{
         background: "linear-gradient(135deg, #ff0000, #007bff)",

@@ -1,12 +1,14 @@
 "use client";
 
 import { Button } from "@chakra-ui/react";
+import { signIn } from "next-auth/react";
 
 export default function ProfileIcon() {
 
 
   return (
     <Button
+    onClick={() => signIn("github")}
       colorScheme="blue"
       size="md"
       borderRadius="8px"
