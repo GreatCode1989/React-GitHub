@@ -2,10 +2,10 @@
 import { Button } from "@chakra-ui/react";
 
 
-export default function SignInButton() {
+export default function SignInButton({onClick}) {
   return (
     <Button
-      
+      onClick={onClick}
       colorScheme="green"
       size="md"
       borderRadius="8px"
