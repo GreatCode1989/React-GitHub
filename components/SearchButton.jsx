@@ -1,11 +1,18 @@
-
 import { Button } from "@chakra-ui/react";
 
 
-export default function SignInButton({onClick}) {
+export default function SignInButton({ onClick }) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <Button
       onClick={onClick}
+      onKeyDown={handleKeyDown} 
       colorScheme="green"
       size="md"
       borderRadius="8px"
@@ -13,6 +20,7 @@ export default function SignInButton({onClick}) {
       boxShadow="md"
       p={8}
       mt={12}
+      mb={12}
       width={200}
       _hover={{
         background: "linear-gradient(135deg, #ff0000, #007bff)",
@@ -25,6 +33,8 @@ export default function SignInButton({onClick}) {
         transition: "background .2s",
       }}
       _focus={{ outline: "none" }}
+      type="button"
+      tabIndex={0}
     >
       Search Repositories
     </Button>

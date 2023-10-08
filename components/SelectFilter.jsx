@@ -11,10 +11,8 @@ export default function SelectFilter({ sortBy, setSortBy, limit, setLimit }) {
   return (
     <Flex
     align="center" 
-    position="fixed" 
-    top="30%" 
-    left="50%" 
-    transform="translate(-50%, -50%)" 
+    position="reletive" 
+    transform="translate(0%, -40%)" 
     >
       <Box ml="2">
         <FormControl>
